@@ -4,7 +4,7 @@
 -- Purpose: Joins, revenue analysis, filtering, and business insights
 
 --------------------------------------------------
--- STEP 2: Inner Join - Orders with Customers
+-- STEP 2: Inner Join - Orders with Customers (orders_customers_inner_join.csv)
 --------------------------------------------------
 SELECT 
     o.OrderID,
@@ -16,7 +16,7 @@ INNER JOIN customers c
 ON o.CustomerID = c.CustomerID;
 
 --------------------------------------------------
--- STEP 3: Left Join - Customers with No Orders
+-- STEP 3: Left Join - Customers with No Orders (customers_without_orders.csv)
 --------------------------------------------------
 SELECT 
     c.CustomerID,
@@ -27,7 +27,7 @@ ON c.CustomerID = o.CustomerID
 WHERE o.OrderID IS NULL;
 
 --------------------------------------------------
--- STEP 4: Revenue Per Product
+-- STEP 4: Revenue Per Product (product_revenue.csv)
 --------------------------------------------------
 SELECT 
     p.ProductID,
@@ -40,7 +40,7 @@ GROUP BY p.ProductID, p.ProductName
 ORDER BY total_revenue DESC;
 
 --------------------------------------------------
--- STEP 5: Category-wise Revenue
+-- STEP 5: Category-wise Revenue (category_revenue.csv)
 --------------------------------------------------
 SELECT 
     cat.CategoryName,
@@ -52,7 +52,7 @@ GROUP BY cat.CategoryName
 ORDER BY category_revenue DESC;
 
 --------------------------------------------------
--- STEP 6: Sales by Region and Date Range
+-- STEP 6: Sales by Region and Date Range (region_date_sales_OR.csv)
 --------------------------------------------------
 SELECT 
     o.OrderID,
